@@ -12,11 +12,15 @@ require.config({
     paths:{
         text:'../lib/require/text',
         jquery:'../lib/jquery/jquery',
-        angular:'../lib/angular/angular'
+        angular: '../lib/angular/angular',
+        angularbootstrap: '../lib/angular/angular-bootstrap'
     },
     shim:{
         'angular':{
             exports:'angular'
+        },
+        angularbootstrap: {
+            deps: ['angular']
         }
     },
     priority:[
@@ -30,14 +34,15 @@ require([
     'text',
     'jquery',
     'app',
-    'routes'
-], function (angular) {
+    'routes',
+    'angularbootstrap'
+], function (angular, angularbootstrap) {
     //This function will be called when all the dependencies
     //listed above are loaded. Note that this function could
     //be called before the page is loaded.
     //This callback is optional.
 
     $(document).ready(function () {
-        angular.bootstrap(document, ['myApp']);
+        angular.bootstrap(document, ['myApp', 'ui.bootstrap.dialog']);
     });
 });

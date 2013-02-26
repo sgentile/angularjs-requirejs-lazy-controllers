@@ -8,8 +8,8 @@
 
 define(['angular', 'utils/route-config'], function (angular, routeConfig, lazyDirectives) {
 
-    return angular.module('myApp', [], function ($compileProvider, $controllerProvider) {
+    return angular.module('myApp', [], function($compileProvider, $controllerProvider) {
         routeConfig.setCompileProvider($compileProvider);
         routeConfig.setControllerProvider($controllerProvider);
-    })
+    });
 });

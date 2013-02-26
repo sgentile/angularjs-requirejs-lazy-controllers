@@ -21,7 +21,7 @@ define([], function () {
     }
 
     return {
-        setCompileProvider:setCompileProvider,
-        register:register
-    }
+        setCompileProvider: setCompileProvider,
+        register: register
+    };
 })

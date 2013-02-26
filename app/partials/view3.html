@@ -1,0 +1,44 @@
+﻿<div class="well well-small">
+    <h1>{{message}}</h1>
+</div>
+<div class="fluid">
+    <div class="span6">
+
+        <form class="form-horizontal" data-ng-submit="submit()">
+            <fieldset>
+                <legend>Add Person</legend>
+                <div class="control-group">
+                    <label class="control-label" for="name">Name:</label>
+                    <div class="controls">
+                        <input type="text" id="name" data-ng-model="name" name="text" placeholder="Enter a name..." />
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls">
+                        <button type="submit" class="btn">Submit</button>
+                    </div>
+                </div>
+
+            </fieldset>
+        </form>
+
+    </div>
+    <div class="span6">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Remove</th>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-ng-repeat="person in people">
+                    <td>
+                        <button class="btn btn-danger" data-ng-click="remove($index)">Remove</button></td>
+                    <td>{{person.Name}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+

@@ -33,14 +33,14 @@ define(['utils/lazy-directives'], function (lazyDirectives) {
         };
         routeDefinition.controller = controllerName;
         routeDefinition.resolve = {
-            delay:function ($q, $rootScope) {
+            delay: function($q, $rootScope) {
                 defer = $q.defer();
                 if (!html) {
                     var dependencies = [controllerName, "text!" + templateUrl];
                     if (directives) {
                         dependencies = dependencies.concat(directives);
                     }
-                    require(dependencies, function () {
+                    require(dependencies, function() {
                         var controller = arguments[0],
                             template = arguments[1];
 
@@ -51,23 +51,23 @@ define(['utils/lazy-directives'], function (lazyDirectives) {
                         $controllerProvider.register(controllerName, controller);
                         html = template;
                         defer.resolve();
-                        $rootScope.$apply()
-                    })
+                        $rootScope.$apply();
+                    });
 
                 } else {
                     defer.resolve();
                 }
                 return defer.promise;
             }
-        }
+        };
 
         return routeDefinition;
     }
 
     return {
-        setControllerProvider:setControllerProvider,
-        setCompileProvider:setCompileProvider,
-        config:config
-    }
+        setControllerProvider: setControllerProvider,
+        setCompileProvider: setCompileProvider,
+        config: config
+    };
 })
 
